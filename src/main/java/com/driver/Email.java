@@ -23,14 +23,15 @@ public class Email {
 
         if(oldPassword.equals(this.password)){
             if(isValid(newPassword)){
-                System.out.println("Password changed successfully");
+                System.out.println("Password changed successfully!");
+                this.password=newPassword;
             }
             else{
-                System.out.println("Invalid password");
+                System.out.println("The new password is not valid!");
             }
         }
         else{
-            System.out.println("passoword does not match with old password");
+            System.out.println("The given password does not match current password!");
         }
         //Change password only if the oldPassword is equal to current password and the new password meets all of the following:
         // 1. It contains at least 8 characters
@@ -49,10 +50,10 @@ public class Email {
         boolean special = false;
         for(int i=0;i<newPassword.length();i++){
             char ch = newPassword.charAt(i);
-            if(ch=='A' && ch<='Z'){
+            if(ch>='A' && ch<='Z'){
                 upper = true;
             }
-            else if(ch>-'a' && ch<='z'){
+            else if(ch>='a' && ch<='z'){
                 lower = true;
             }
             else if(ch>='0' && ch<='9'){
